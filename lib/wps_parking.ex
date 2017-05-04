@@ -1,0 +1,2 @@
+defmodule WpsParking do
+end
