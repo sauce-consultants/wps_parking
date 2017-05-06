@@ -16,4 +16,9 @@ defmodule WpsParking.Customers do
     |> Customer.format
   end
 
+  def create(params) do
+    Client.post("customers", params)
+    |> Customer.format_post_response
+  end
+
 end

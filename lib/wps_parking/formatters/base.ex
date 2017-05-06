@@ -9,6 +9,16 @@ defmodule WpsParking.Formatters.Base do
     |> clean_associations
   end
 
+  def format_post_response(result, endpoint) do
+    singular_endpoint = endpoint |> Inflex.singularize 
+    url_key = singular_endpoint <> "Url" |> String.to_atom
+    id_key = singular_endpoint <> "_id" |> String.to_atom
+
+    result_id = result[url_key] |> clean_association
+
+    %{} |> Map.put(id_key, result_id)
+  end
+
   def maybe_remove_root_node(results, atomized_endpoint) do
     case results |> Map.get(atomized_endpoint) do
       nil -> results

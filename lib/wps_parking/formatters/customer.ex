@@ -7,4 +7,9 @@ defmodule WpsParking.Formatters.Customer do
     |> Base.format("customers")
   end
 
+  def format_post_response(payload) do
+    payload
+    |> Base.format_post_response("customers")
+  end
+
 end

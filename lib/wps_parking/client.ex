@@ -46,10 +46,11 @@ defmodule WpsParking.Client do
     ).body
   end
 
-  def post(endpoint, params \\ %{}) do
+  def post(endpoint, body, params \\ %{}) do
     params = params |> Map.put("carparkId", Application.get_env(:wps_parking, :carpark_id))
     WpsParking.Client.post!(
       endpoint,
+      JSX.encode!(body),
       headers(),
       params: params
     ).body
@@ -62,7 +63,7 @@ defmodule WpsParking.Client do
   def headers do
     %{
       "Content-Type" => "application/json",
-      "Accept" => "application/json",
+      # "Accept" => "application/json",
       "Authorization" => auth_header()
     }
   end
