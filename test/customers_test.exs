@@ -11,6 +11,7 @@ defmodule WpsParkingCustomersTest do
     assert result[:customer_id] == "260fb99c-c441-4946-bab3-8cade05392a6"
   end
 
+  @tag :skip
   test "creates one" do
     post_body = %{
       "customerState" => "ACTIVE",

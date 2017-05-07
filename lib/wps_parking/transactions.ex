@@ -16,4 +16,10 @@ defmodule WpsParking.Transactions do
     |> Transaction.format
   end
 
+  def create(params) do
+    Client.post("transactions", params)
+    |> Transaction.format_post_response
+  end
+
+
 end
