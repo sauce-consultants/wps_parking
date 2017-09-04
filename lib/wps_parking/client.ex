@@ -33,7 +33,7 @@ defmodule WpsParking.Client do
     WpsParking.Client.get!(
       endpoint,
       headers(),
-      [timeout: 15000, recv_timeout: 15000, params: params]
+      [timeout: 30000, recv_timeout: 30000, params: params]
     ).body
   end
   
